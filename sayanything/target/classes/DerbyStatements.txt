@@ -1,0 +1,13 @@
+java -jar %DERBY_HOME%\lib\derbyrun.jar ij
+
+CONNECT 'jdbc:derby:sayanything;create=true';
+
+CREATE TABLE SAY (id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),  NAME VARCHAR(72), LOCATION VARCHAR(72), SAY CLOB(250K) );
+
+DROP TABLE SAY;
+
+INSERT INTO SAY(name, location, say) VALUES ('Batman','Gotham','Has ad exerci consul maiorum, ad primis nostrum sit, rebum velit eu pri. Omnes invidunt lobortis cu vim, vel sale corpora ullamcorper ex. An iisque probatus tacimates nam, sea an cibo graecis mnesarchum. Sit et eius decore, dolor assentior qui ex. Eu doming facilisi quo, nec ad equidem menandri. Te docendi posidonium eam, ea nisl feugait vix.');
+INSERT INTO SAY(name, location, say) VALUES ('Robin','Gotham','Has ad exerci consul maiorum, ad primis nostrum sit, rebum velit eu pri. Omnes invidunt lobortis cu vim, vel sale corpora ullamcorper ex. An iisque probatus tacimates nam, sea an cibo graecis mnesarchum. Sit et eius decore, dolor assentior qui ex. Eu doming facilisi quo, nec ad equidem menandri. Te docendi posidonium eam, ea nisl feugait vix.');
+INSERT INTO SAY(name, location, say) VALUES ('Joker','Gotham','Has ad exerci consul maiorum, ad primis nostrum sit, rebum velit eu pri. Omnes invidunt lobortis cu vim, vel sale corpora ullamcorper ex. An iisque probatus tacimates nam, sea an cibo graecis mnesarchum. Sit et eius decore, dolor assentior qui ex. Eu doming facilisi quo, nec ad equidem menandri. Te docendi posidonium eam, ea nisl feugait vix.');
+
+select * from say;
