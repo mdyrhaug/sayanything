@@ -1,14 +1,19 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <div id="menu">
-	<form action="newEntry.mb" method="post">
+	<form:form action="newEntry.mb" method="post" modelAttribute="newSay">
 		<div class="form-group">
     		<label for="name">Your Name</label>
-    		<input type="text" class="form-control" id="name" placeholder="Your Name">
+    		<form:input path="name" placeholder="Your Name" class="form-control" name="name"/>
   		</div>
 		<div class="form-group">
     		<label for="location">Your Location</label>
-    		<input type="text" class="form-control" id="location" placeholder="Your Location">
-  		</div>
-		<div id="summernote"></div>
+    		<form:input path="location" placeholder="Your Location" class="form-control" name="location"/>
+    	</div>
+		 <p class="container">
+            <textarea class="input-block-level" id="summernote" name="say" rows="18">
+            </textarea>
+         </p>
 		<button class="btn btn-success" type="submit" id="submitButton">Button</button>
-	</form>
+	</form:form>
 </div>

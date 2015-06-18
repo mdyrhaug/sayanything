@@ -19,6 +19,9 @@ public class SayDaoDerbyImpl implements SayDao {
 		try{
 			Connection conn = DriverManager.getConnection("jdbc:derby:E:\\dev\\apps\\derby\\sayanything");
 			PreparedStatement insert = conn.prepareStatement("insert into say (name,location,say) values(?,?,?)");
+			System.out.println("name: "+say.getName());
+			System.out.println("location: "+say.getLocation());
+			System.out.println("say: "+say.getSay());
 			insert.setString(1, say.getName());
 			insert.setString(2, say.getLocation());
 			insert.setString(3, say.getSay());
@@ -26,7 +29,7 @@ public class SayDaoDerbyImpl implements SayDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		System.out.println("All done with insert");
 	}
 
 	public void updateSay(Say say) {
