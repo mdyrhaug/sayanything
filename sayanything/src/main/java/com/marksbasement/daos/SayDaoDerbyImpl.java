@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -18,13 +19,11 @@ public class SayDaoDerbyImpl implements SayDao {
 	public void insertSay(Say say) {
 		try{
 			Connection conn = DriverManager.getConnection("jdbc:derby:E:\\dev\\apps\\derby\\sayanything");
-			PreparedStatement insert = conn.prepareStatement("insert into say (name,location,say) values(?,?,?)");
-			System.out.println("name: "+say.getName());
-			System.out.println("location: "+say.getLocation());
-			System.out.println("say: "+say.getSay());
+			PreparedStatement insert = conn.prepareStatement("insert into say (name,location,createdate,say) values(?,?,?,?)");
 			insert.setString(1, say.getName());
 			insert.setString(2, say.getLocation());
-			insert.setString(3, say.getSay());
+			insert.setDate(3, new java.sql.Date( Calendar.getInstance().getTime().getTime() ));			
+			insert.setString(4, say.getSay());
 			insert.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -48,7 +47,7 @@ public class SayDaoDerbyImpl implements SayDao {
 		
 		try{
 			Connection conn = DriverManager.getConnection("jdbc:derby:E:\\dev\\apps\\derby\\sayanything");
-			PreparedStatement select = conn.prepareStatement("select * from say");
+			PreparedStatement select = conn.prepareStatement("select * from say order by createdate");
 			ResultSet rs = select.executeQuery();
 			while(rs.next())
 			{
@@ -56,6 +55,7 @@ public class SayDaoDerbyImpl implements SayDao {
 				say.setName(rs.getString("name"));
 				say.setLocation(rs.getString("location"));
 				say.setSay(rs.getString("say"));
+				say.setCreateDate(rs.getDate("createdate"));
 				says.add(say);
 			}
 		} catch (SQLException e) {

@@ -33,5 +33,10 @@
     <script src="js/bootstrap.js"></script>  
     <script src="js/summernote.min.js"></script>    
     <script src="js/sayanything.js"></script>
+    <script>
+         $(document).ready(function() {
+	         $('.summernote').summernote();
+	     });
+</script>
 </body>
 </html>

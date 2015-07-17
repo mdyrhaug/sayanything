@@ -1,6 +1,6 @@
 java -jar %DERBY_HOME%\lib\derbyrun.jar ij
 
-CONNECT 'jdbc:derby:sayanything;create=true';
+CONNECT 'jdbc:derby:E:\\dev\\apps\\derby\\sayanything;create=true';
 
 CREATE TABLE SAY (id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),  NAME VARCHAR(72), LOCATION VARCHAR(72), CREATEDATE DATE, SAY CLOB(250K) );
 

@@ -10,10 +10,7 @@
     		<label for="location">Your Location</label>
     		<form:input path="location" placeholder="Your Location" class="form-control" name="location"/>
     	</div>
-		 <p class="container">
-            <textarea class="input-block-level" id="summernote" name="say" rows="18">
-            </textarea>
-         </p>
+		 <div class="summernote">summernote 1</div>
 		<button class="btn btn-success" type="submit" id="submitButton">Button</button>
 	</form:form>
 </div>
