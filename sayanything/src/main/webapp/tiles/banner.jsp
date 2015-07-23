@@ -1,3 +1,5 @@
 <div class="banner">
-	<h1>{dust JS}</h1>
+   <div style="padding: 15px;">
+		<h1>{dust JS}</h1>
+	</div>
 </div>

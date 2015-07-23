@@ -1,10 +1,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page isELIgnored="false"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:forEach var="sayValue" items="${says}">
+<fmt:formatDate value="${sayValue.createDate}" var="formattedDate" type="date" pattern="MM-dd-yyy" />
 	<div class="say">
-		<h5>${sayValue.name}</h5>
-		<h6>${sayValue.location}</h6>
-		<p>${sayValue.say}</p>
-	</div>
+      <div class="pull-right sayDate">${formattedDate}</div>	
+  	  <div class="sayName">${sayValue.name}<br />${sayValue.location}</div>
+	  <div class="sayValue">${sayValue.say}</div>
+    </div>
 </c:forEach>

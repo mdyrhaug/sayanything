@@ -28,6 +28,7 @@ public class IndexController {
 	@RequestMapping(value="/newEntry", method=RequestMethod.POST)
 	public String newEntry(@ModelAttribute("say")Say say, BindingResult result) {
 		System.out.println("in newEntry");
+		System.out.println("say: "+say.getSay());
 		SayService service = new SayService();
 		service.insertSay(say);
 		return "redirect:/home.mb";
