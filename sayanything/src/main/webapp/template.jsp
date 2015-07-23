@@ -12,12 +12,12 @@
 </head>
 <body>
 <div class="row">
-   <div class="col-xs-12">
-       <tiles:insertAttribute name="header" />
-   </div>
+    <div class="col-xs-12">
+    	<tiles:insertAttribute name="header" />
+   	</div>
 </div>
-<div class="row">
-   <div class="col-md-4">
+<div class="row no-gutters" style="margin-top: 25px;">
+   <div class="col-md-4 well" id="menuDiv">
        <tiles:insertAttribute name="menu" />
    </div>
    <div class="col-md-8" id="body">
@@ -31,12 +31,25 @@
 </div>
     <script src="js/jquery-1.11.3.min.js"></script> 
     <script src="js/bootstrap.js"></script>  
+    <script src="js/jqBootstrapValidation.js"></script>    
     <script src="js/summernote.min.js"></script>    
     <script src="js/sayanything.js"></script>
     <script>
          $(document).ready(function() {
-	         $('.summernote').summernote();
+        	 $(function () { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); } );
+	         $('.summernote').summernote({toolbar: [   ['style', ['bold', 'italic', 'underline', 'clear']],
+	                                                   ['font', ['strikethrough', 'superscript', 'subscript']],
+	                                                   ['fontsize', ['fontsize']],
+	                                                   ['color', ['color']],
+	                                                   ['para', ['ul', 'ol', 'paragraph']],
+	                                                   ['height', ['height']]],height: 150});
+	         
 	     });
+         
+         $('#sayForm').submit(function(event){
+        	 $('sayForm').submit();
+        	});         
+         
 </script>
 </body>
 </html>
