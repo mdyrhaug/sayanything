@@ -1,18 +1,21 @@
-body {background-color:  #000000;}
+body {
+	background: #272121;
+}
 
 .banner {
 	background-color: #550000;
 	color: #ffffff;
-	padding: 20px;
+	-moz-box-shadow: 0px 10px 10px #550000;
+	-webkit-box-shadow: 0px 10px 10px #550000;
+	box-shadow: 0px 10px 10px #550000
 }
 
-#body {
-	background-color: #223344;	
-}
 
 #menu {
-	padding-top: 20px;
+	background-color: #191919;
+	border-radius: 12px;	
 }
+
 
 #footer {
 	
@@ -24,8 +27,40 @@ body {background-color:  #000000;}
 
 .say {
 	border: 1px solid black;
-	background-color: #224444;	
-	margin: 10px 10px 10px 0px;
+    border-radius: 12px;	
+	background-color: #191919;	
+	margin: 10px;
 	padding: 13px;
 	color: #ffffff;
+}
+
+.sayName {
+	font-weight: bold;
+}
+
+.sayValue {
+
+}
+
+#sayForm label {
+	color: #ffffff;	
+}
+
+.note-editable {
+   background-color: #fff;
+}
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.well {
+   border: none;
+   background: #272121;
 }
