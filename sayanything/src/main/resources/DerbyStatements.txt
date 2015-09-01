@@ -11,3 +11,9 @@ INSERT INTO SAY(name, location, say) VALUES ('Robin','Gotham','Has ad exerci con
 INSERT INTO SAY(name, location, say) VALUES ('Joker','Gotham','Has ad exerci consul maiorum, ad primis nostrum sit, rebum velit eu pri. Omnes invidunt lobortis cu vim, vel sale corpora ullamcorper ex. An iisque probatus tacimates nam, sea an cibo graecis mnesarchum. Sit et eius decore, dolor assentior qui ex. Eu doming facilisi quo, nec ad equidem menandri. Te docendi posidonium eam, ea nisl feugait vix.');
 
 select * from say;
+
+
+################MySQL#######################
+create database sayanything;
+
+CREATE TABLE SAY (id INTEGER NOT NULL auto_increment,  NAME VARCHAR(72), LOCATION VARCHAR(72), CREATEDATE TIMESTAMP, SAY TEXT, PRIMARY KEY(id) );
