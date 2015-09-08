@@ -49,34 +49,23 @@ public class SayAnythingListener implements ServletContextListener {
     		setConstants();
     	} catch (Exception e)
     	{
+    		e.printStackTrace();
     		logger.error("FAILURE");
     	}
     }
     
     private void setConstants()
     {
-    	Properties prop = new Properties();
-    	InputStream input = null;
-
-    	try {
-
-    		input = new FileInputStream("/sayanything.properties");
-
-    		// load a properties file
-    		prop.load(input);
-
-    		// get the property value and set it.
-    		SayConstants.setDatabaseType(prop.getProperty("database"));
-    	} catch (IOException ex) {
+    	try{ 
+    		String resourceName = "sayanything.properties"; // could also be a constant
+    		ClassLoader loader = Thread.currentThread().getContextClassLoader();
+    		Properties props = new Properties();
+    		InputStream resourceStream = loader.getResourceAsStream(resourceName);
+    	    props.load(resourceStream);
+    	    SayConstants.setDatabaseType(props.getProperty("databasetype"));
+    	}
+    	catch (IOException ex) {
     		ex.printStackTrace();
-    	} finally {
-    		if (input != null) {
-    			try {
-    				input.close();
-    			} catch (IOException e) {
-    				e.printStackTrace();
-    			}
-    		}
     	}
     }
 	

@@ -15,12 +15,20 @@ import com.marksbasement.domain.Say;
 
 public class SayDaoMySQLImpl implements SayDao {
 
-	public static final String derbyDir="E:\\dev\\apps\\derby";
 	  private Connection conn = null;
+	  {
+		  try {
+			  Class.forName("com.mysql.jdbc.Driver");
+		  } catch (ClassNotFoundException ioe) {
+			  
+		  }
+	  }
 
 	public void insertSay(Say say) {
 		try{
-			Connection conn = DriverManager.getConnection("jdbc:derby:E:\\dev\\apps\\derby\\sayanything");
+		      conn = DriverManager
+			          .getConnection("jdbc:mysql://localhost/sayanything?"
+			              + "user=talkingpenguin&password=awJ9XGho7FDgGWP1AHWg");
 			PreparedStatement insert = conn.prepareStatement("insert into say (name,location,createdate,say) values(?,?,?,?)");
 			insert.setString(1, say.getName());
 			insert.setString(2, say.getLocation());
@@ -48,11 +56,10 @@ public class SayDaoMySQLImpl implements SayDao {
 		List<Say> says = new ArrayList<Say>();		
 		
 		try{
-		      Class.forName("com.mysql.jdbc.Driver");
 		      // Setup the connection with the DB
 		      conn = DriverManager
-		          .getConnection("jdbc:mysql://localhost/feedback?"
-		              + "user=sqluser&password=sqluserpw");
+		          .getConnection("jdbc:mysql://localhost/sayanything?"
+		              + "user=talkingpenguin&password=awJ9XGho7FDgGWP1AHWg");
 			PreparedStatement select = conn.prepareStatement("select * from say order by createdate desc");
 			ResultSet rs = select.executeQuery();
 			while(rs.next())
@@ -69,5 +76,4 @@ public class SayDaoMySQLImpl implements SayDao {
 		}
 		return says;
 	}
-
 }
